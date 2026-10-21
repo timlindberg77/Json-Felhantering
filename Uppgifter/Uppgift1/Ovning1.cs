@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
-namespace Json_Felhantering.Uppgifter.uppgift1
+namespace Json_Felhantering.Uppgifter.Uppgift1
 {
-    public class ProgramMethod1
+    public class Ovning1
     {
-        public static void Ovning1()
+        public static void runOvning1()
         {
-            //1.Skriv text till en JSON-fil
-            //Be användaren skriva sitt namn och ålder, och spara det i en JSON-fil(user.json).
-            // 💡 Tips: använd JsonSerializer.Serialize() och File.WriteAllText().
             User nemo = new User();
             try
             {
@@ -20,6 +18,7 @@ namespace Json_Felhantering.Uppgifter.uppgift1
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine("nej");
             }
 
             try
@@ -48,8 +47,9 @@ namespace Json_Felhantering.Uppgifter.uppgift1
             }
 
             var path = Path.Combine(GetProjectDirectory(), "user.json");
-            var jsonData = System.Text.Json.JsonSerializer.Serialize(nemo);
-            System.IO.File.WriteAllText("user.json", jsonData);
+
+            var json = JsonSerializer.Serialize(nemo, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(path, json);
         }
     }
 }

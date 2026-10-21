@@ -9,13 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Uppgifter\uppgift1\user.json">
+    <None Update="user.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Uppgifter\uppgift2\" />
+    <Folder Include="Uppgifter\Ovning2\" />
   </ItemGroup>
 
 </Project>
